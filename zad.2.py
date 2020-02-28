@@ -1,17 +1,30 @@
-print('Liczby Armstronga to:')
+def get_armstrong_numbers(max_number):
+    """Function prints Armstrong numbers.
 
-for i in range(1, 5000000):             #Program wypisuje liczby Armstronga zawierające się w określonym przedziale
-    num_length = len(str(i))            #Im większy przedział liczbowy, tym program działa wolniej
-    power = int(num_length) 
-    digit_sum = 0 
-    num = i  
-    while num > 0: 
-      digit = num % 10 
-      digit_sum += pow(digit, power) 
-      num //= 10
+    Args:
+        max_number (int): e.g ("12457")  
 
-    if i == digit_sum:
-      print(i) 
+    """
+  print('Liczby Armstronga to:')
+
+  for i in range(1, max_number):            
+      num_length = len(str(i))          
+      power = int(num_length) 
+      digit_sum = 0 
+      num = i  
+      while num > 0: 
+        digit = num % 10 
+        digit_sum += pow(digit, power) 
+        num //= 10
+
+      if i == digit_sum:
+        print(i) 
+def main():
+    get_armstrong_numbers(50000000)
+
+
+if __name__== "__main__":
+  main()
 
 
 
