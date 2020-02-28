@@ -1,83 +1,83 @@
-def szyfr_groensfelda(klucz, nazwa_pliku, akcja):
-    wyjsciowy_tekst = ''
-    tekst = czytaj_plik(nazwa_pliku)
-    alfabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+def cipher_groensfeld(klucz, nazwa_pliku, akcja):
+    start_text = ''
+    text = read_file(name_file)
+    alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
     #rozbicie tekstu na tablicę słów
-    tablica_slow = tekst.upper().split()
-    dlugosc_klucza = len(str(klucz))
+    table_word = text.upper().split()
+    lenght_key = len(str(key))
     #rozbicie klucza na tablicę składowych cyfr
-    tablica_klucz = [int(c) for c in str(klucz)]
-    dlugosc_alfabetu = len(alfabet)
+    table_key = [int(c) for c in str(key)]
+    lenght_alphabet = len(alphabet)
     
     #iteracja przez każde słowo w tekście
-    for slowo in tablica_slow:
+    for word in table_word:
         #zmienna przechowująca długość słowa
-        dlugosc_slowa = len(slowo)
+        lenght_word = len(word)
         #zmienna przechowująca nowe słowo
-        nowe_slowo = ''
+        new_word = ''
         #ustawienie licznika długości klucza
-        licznik = 0
+        counter = 0
             
         #iteracja po literach słowa
-        for litera in slowo:
+        for letter in word:
             #znalezienie indeksu litery w alfabecie
-            indeks_litery = alfabet.index(litera)
+            index_letter = alphabet.index(letter)
             #konkatenacja podmienionych liter do slowa
             #flaga 'szyfruj' w wywołaniu funkcji informuje, że odbywa się akcja szyfrowania
-            if akcja == 'szyfruj':
-                indeks_zastapienia = indeks_litery + tablica_klucz[licznik]
+            if share == 'szyfruj':
+                index_replacement = index_letter + table_key[counter]
             else:
-                indeks_zastapienia = indeks_litery - tablica_klucz[licznik]
+                index_replacement = index_letter - table_key[counter]
             #jesli indeks zastapienia nie wykracza poza indeks tablicy, to zastąp bezpośrednio, bo nie wykroczy poza granicę tablicy
-            if dlugosc_alfabetu > indeks_zastapienia:
-                nowe_slowo += alfabet[indeks_zastapienia]
+            if lenght_alphabet > index_replacement:
+                new_word += alphabet[index_replacement]
             #jesli indeks zastapienia wykracza poza indeks tablicy
             else:
                 #odjęcie od większego indeksu długości alfabetu - w ten sposób uzyskujemy indeks liczony o dodatkowe indeksy, które były poza granicą, od początku
-                indeks_poza = indeks_zastapienia - dlugosc_alfabetu
-                nowe_slowo += alfabet[indeks_poza]
+                index_off = index_replacement - lenght_alphabet
+                new_word += alphabet[index_off]
             #inkrementacja licznika, jeśli klucz jest dłuższy niż 2
-            licznik += 1
+            counter += 1
             #jeśli słowo jest dłuższe od klucza i licznik wykracza poza indeks klucza, ustaw licznik na 0 (wtedy liczenie po indeksach klucza zacznie się od nowa)
-            if (dlugosc_klucza < dlugosc_slowa) and (licznik > dlugosc_klucza - 1):
+            if (lenght_key < lenght_word) and (counter > lenght_key - 1):
                 licznik = 0
 
         #konkatenacja zaszyfrowanego słowa pełnym tekstem, który będzie zwracać funkcja
         #nie dodawaj spacji, jeśli to początek tekstu
-        if wyjsciowy_tekst == '':
-            wyjsciowy_tekst += nowe_slowo
+        if start_text == '':
+            start_text += new_word
         else:
-            wyjsciowy_tekst += (" " + nowe_slowo)
+            start_text += (" " + new_word)
 
     #jeśli flaga to 'szyfruj', zapisz plik z zaszyfrowanym tekstem
-    if akcja == 'szyfruj':
-        zapisz_plik(wyjsciowy_tekst, 'ZaszyfrowanyTekst')
+    if share == 'szyfruj':
+        save_file(start_text, 'ZaszyfrowanyTekst')
     else:
-        zapisz_plik(wyjsciowy_tekst, 'OdszyfrowanyTekst')
+        save_file(start_text, 'OdszyfrowanyTekst')
 
-    return wyjsciowy_tekst
+    return start_text
 
 #funkcja wczytująca dany plik .txt i zwraca jego zawartość
-def czytaj_plik(nazwa_pliku):
-    p = open(nazwa_pliku,"r")
-    tekst = p.read()
+def read_file(new_file):
+    p = open(name_file,"r")
+    text = p.read()
     p.close()
-    return tekst
+    return text
 
 #funkcja zapisująca plik z rezultatem szyfrowania
-def zapisz_plik(tekst, nazwa_pliku):
-    p = open(nazwa_pliku+'.txt', "w")
-    p.write(tekst)
+def save_file(text, name_file):
+    p = open(name_file+'.txt', "w")
+    p.write(text)
     p.close()
 
 #wywołanie funkcji szyfrowania (trzeci parametr w funkcji to flaga determinująca czy szyfrowanie lub odszyfrowanie)
-szyfr_groensfelda(31206, 'DoZaszyfrowania.txt', 'szyfruj')
+cipher_groensfeld(31206, 'DoZaszyfrowania.txt', 'szyfruj')
 #DoZaszyfrowania.txt zawiera tekst 'programowanie jest super'
 #rezultatem jest zapisany plik 'ZaszyfrowanyTekst.txt'
 #zawartość: SSQGXDNQWGQJG MFUT VVREX
 
 #wywołanie funkcji odszyfrowania
-szyfr_groensfelda(31206, 'ZaszyfrowanyTekst.txt', 'odszyfruj')
+cipher_groensfeld(31206, 'ZaszyfrowanyTekst.txt', 'odszyfruj')
 #'ZaszyfrowanyTekst.txt' zawiera tekst 'SSQGXDNQWGQJG MFUT VVREX'
 #rezultatem wywołania jest nowo powstały plik tekstowy OdszyfrowanyTekst.txt z zawartością:
 #PROGRAMOWANIE JEST SUPER

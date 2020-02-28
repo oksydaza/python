@@ -37,6 +37,20 @@ def delete_chars(input_text):
     return new_text
 
 def generate_freq_dict(input_text):
+    """Function generates frequenc dictionary.
+
+    For each word in input_text is lowecased, then checked if already existing
+    in dictionary. If yes, increment counter. If not, insert word and set counter
+    for this word to 1.
+
+    Args:
+        input_text (array of words): e.g ("word1", "word2")
+
+    Returns:
+        dict: With unsorted dictonary with word and counter pairs
+      
+
+    """
     result_dict = {}
     for word in input_text:
         word = word.lower()
@@ -47,6 +61,13 @@ def generate_freq_dict(input_text):
     return(result_dict)
 
 def get_sorted_decreasing(unsorted, max_count):
+    """Function prints sorted elements.
+
+    Args:
+        unsorted (dictionary): Dictionary e.g. result_dict['word'] = 1
+        max_count (int): Limit result to max count.
+
+    """
     
     for counter, w in enumerate(sorted(unsorted, key=unsorted.get, reverse=True)):
         print(w, unsorted[w])
@@ -63,3 +84,25 @@ def main():
 
 if __name__== "__main__":
   main()
+
+""" Wynik działania programu:
+rzekł 155
+tylko 149
+rabia 129
+sędzia 127
+tadeusz 105
+przed 102
+#jeszcze 101
+#przez 97
+#gdzie 94
+#wszyscy 90
+#wojski 89
+#potem 86
+#teraz 83
+#niech 76
+#kiedy 74
+#jeśli 73
+#który 72
+#nawet 71
+#znowu 71
+#wszystko 67"""

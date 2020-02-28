@@ -1,4 +1,4 @@
-def szukaj_palindromu(num):
+def search_palindromes(num):
     sum = 0
     sum += int(num)
 
@@ -14,8 +14,10 @@ def szukaj_palindromu(num):
 for i in range(1, 201):
     # program wpadnie w nieskończoną pętlę przy 200 i 196. Dla tych liczb nie można osiągnąć palindromu
     if(i != 196 and i != 200):
-        print('Palindrom dla liczby {}:'.format(i), szukaj_palindromu(i))
+        print('Palindrom dla liczby {}:'.format(i), search_palindromes(i))
     else:
         print('Nie istnieje palindrom dla {}'.format(i))
 
 print('Koniec wyszukiwania')
+
+#Wynik działania programu:
