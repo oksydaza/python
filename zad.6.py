@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 def szyfr_groensfelda(klucz, nazwa_pliku, akcja):
     wyjsciowy_tekst = ''
     tekst = czytaj_plik(nazwa_pliku)
@@ -71,7 +73,7 @@ def zapisz_plik(tekst, nazwa_pliku):
     p.close()
 
 #wywołanie funkcji szyfrowania (trzeci parametr w funkcji to flaga determinująca czy szyfrowanie lub odszyfrowanie)
-szyfr_groensfelda(31206, 'DoZaszyfrowania.txt', 'szyfruj')
+szyfr_groensfelda(31206, 'input_test.txt', 'szyfruj')
 #DoZaszyfrowania.txt zawiera tekst 'programowanie jest super'
 #rezultatem jest zapisany plik 'ZaszyfrowanyTekst.txt'
 #zawartość: SSQGXDNQWGQJG MFUT VVREX
