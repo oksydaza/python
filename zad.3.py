@@ -1,23 +1,222 @@
 def search_palindromes(num):
+"""Function take any natural number. If it's not a palindome, reverse it and add both numbers.
+If the result is still not palindome, continue. Stop when reach the palindrome.
+
+"""
     sum = 0
     sum += int(num)
 
-    # pętla działa tak długo, kiedy sum rzutowane na string nie jest taka sama jak string od tyłu
     while str(sum) != str(sum)[::-1]:
-        # przypisanie zmiennej next_num sumy od tyłu
         next_num = int(str(sum)[::-1])
-        # sumowanie obu liczb
         sum += next_num
     return sum
 
-# pętla sprawdzająca palindromy dla liczb 0 - 200
 for i in range(1, 201):
-    # program wpadnie w nieskończoną pętlę przy 200 i 196. Dla tych liczb nie można osiągnąć palindromu
-    if(i != 196 and i != 200):
-        print('Palindrom dla liczby {}:'.format(i), search_palindromes(i))
+    if(i != 196 and i != 201):
+        print('Szukam palindromu dla liczby {}:'.format(i), search_palindromes(i))
     else:
-        print('Nie istnieje palindrom dla {}'.format(i))
+        print('Nie istnieje palindrom dla liczby {}'.format(i))
 
-print('Koniec wyszukiwania')
+"""Result:
+Szukam palindromu dla liczby 1: 1
+Szukam palindromu dla liczby 2: 2
+Szukam palindromu dla liczby 3: 3
+Szukam palindromu dla liczby 4: 4
+Szukam palindromu dla liczby 5: 5
+Szukam palindromu dla liczby 6: 6
+Szukam palindromu dla liczby 7: 7
+Szukam palindromu dla liczby 8: 8
+Szukam palindromu dla liczby 9: 9
+Szukam palindromu dla liczby 10: 11
+Szukam palindromu dla liczby 11: 11
+Szukam palindromu dla liczby 12: 33
+Szukam palindromu dla liczby 13: 44
+Szukam palindromu dla liczby 14: 55
+Szukam palindromu dla liczby 15: 66
+Szukam palindromu dla liczby 16: 77
+Szukam palindromu dla liczby 17: 88
+Szukam palindromu dla liczby 18: 99
+Szukam palindromu dla liczby 19: 121
+Szukam palindromu dla liczby 20: 22
+Szukam palindromu dla liczby 21: 33
+Szukam palindromu dla liczby 22: 22
+Szukam palindromu dla liczby 23: 55
+Szukam palindromu dla liczby 24: 66
+Szukam palindromu dla liczby 25: 77
+Szukam palindromu dla liczby 26: 88
+Szukam palindromu dla liczby 27: 99
+Szukam palindromu dla liczby 28: 121
+Szukam palindromu dla liczby 29: 121
+Szukam palindromu dla liczby 30: 33
+Szukam palindromu dla liczby 31: 44
+Szukam palindromu dla liczby 32: 55
+Szukam palindromu dla liczby 33: 33
+Szukam palindromu dla liczby 34: 77
+Szukam palindromu dla liczby 35: 88
+Szukam palindromu dla liczby 36: 99
+Szukam palindromu dla liczby 37: 121
+Szukam palindromu dla liczby 38: 121
+Szukam palindromu dla liczby 39: 363
+Szukam palindromu dla liczby 40: 44
+Szukam palindromu dla liczby 41: 55
+Szukam palindromu dla liczby 42: 66
+Szukam palindromu dla liczby 43: 77
+Szukam palindromu dla liczby 44: 44
+Szukam palindromu dla liczby 45: 99
+Szukam palindromu dla liczby 46: 121
+Szukam palindromu dla liczby 47: 121
+Szukam palindromu dla liczby 48: 363
+Szukam palindromu dla liczby 49: 484
+Szukam palindromu dla liczby 50: 55
+Szukam palindromu dla liczby 51: 66
+Szukam palindromu dla liczby 52: 77
+Szukam palindromu dla liczby 53: 88
+Szukam palindromu dla liczby 54: 99
+Szukam palindromu dla liczby 55: 55
+Szukam palindromu dla liczby 56: 121
+Szukam palindromu dla liczby 57: 363
+Szukam palindromu dla liczby 58: 484
+Szukam palindromu dla liczby 59: 1111
+Szukam palindromu dla liczby 60: 66
+Szukam palindromu dla liczby 61: 77
+Szukam palindromu dla liczby 62: 88
+Szukam palindromu dla liczby 63: 99
+Szukam palindromu dla liczby 64: 121
+Szukam palindromu dla liczby 65: 121
+Szukam palindromu dla liczby 66: 66
+Szukam palindromu dla liczby 67: 484
+Szukam palindromu dla liczby 68: 1111
+Szukam palindromu dla liczby 69: 4884
+Szukam palindromu dla liczby 70: 77
+Szukam palindromu dla liczby 71: 88
+Szukam palindromu dla liczby 72: 99
+Szukam palindromu dla liczby 73: 121
+Szukam palindromu dla liczby 74: 121
+Szukam palindromu dla liczby 75: 363
+Szukam palindromu dla liczby 76: 484
+Szukam palindromu dla liczby 77: 77
+Szukam palindromu dla liczby 78: 4884
+Szukam palindromu dla liczby 79: 44044
+Szukam palindromu dla liczby 80: 88
+Szukam palindromu dla liczby 81: 99
+Szukam palindromu dla liczby 82: 121
+Szukam palindromu dla liczby 83: 121
+Szukam palindromu dla liczby 84: 363
+Szukam palindromu dla liczby 85: 484
+Szukam palindromu dla liczby 86: 1111
+Szukam palindromu dla liczby 87: 4884
+Szukam palindromu dla liczby 88: 88
+Szukam palindromu dla liczby 89: 8813200023188
+Szukam palindromu dla liczby 90: 99
+Szukam palindromu dla liczby 91: 121
+Szukam palindromu dla liczby 92: 121
+Szukam palindromu dla liczby 93: 363
+Szukam palindromu dla liczby 94: 484
+Szukam palindromu dla liczby 95: 1111
+Szukam palindromu dla liczby 96: 4884
+Szukam palindromu dla liczby 97: 44044
+Szukam palindromu dla liczby 98: 8813200023188
+Szukam palindromu dla liczby 99: 99
+Szukam palindromu dla liczby 100: 101
+Szukam palindromu dla liczby 101: 101
+Szukam palindromu dla liczby 102: 303
+Szukam palindromu dla liczby 103: 404
+Szukam palindromu dla liczby 104: 505
+Szukam palindromu dla liczby 105: 606
+Szukam palindromu dla liczby 106: 707
+Szukam palindromu dla liczby 107: 808
+Szukam palindromu dla liczby 108: 909
+Szukam palindromu dla liczby 109: 1111
+Szukam palindromu dla liczby 110: 121
+Szukam palindromu dla liczby 111: 111
+Szukam palindromu dla liczby 112: 323
+Szukam palindromu dla liczby 113: 424
+Szukam palindromu dla liczby 114: 525
+Szukam palindromu dla liczby 115: 626
+Szukam palindromu dla liczby 116: 727
+Szukam palindromu dla liczby 117: 828
+Szukam palindromu dla liczby 118: 929
+Szukam palindromu dla liczby 119: 1331
+Szukam palindromu dla liczby 120: 141
+Szukam palindromu dla liczby 121: 121
+Szukam palindromu dla liczby 122: 343
+Szukam palindromu dla liczby 123: 444
+Szukam palindromu dla liczby 124: 545
+Szukam palindromu dla liczby 125: 646
+Szukam palindromu dla liczby 126: 747
+Szukam palindromu dla liczby 127: 848
+Szukam palindromu dla liczby 128: 949
+Szukam palindromu dla liczby 129: 1551
+Szukam palindromu dla liczby 130: 161
+Szukam palindromu dla liczby 131: 131
+Szukam palindromu dla liczby 132: 363
+Szukam palindromu dla liczby 133: 464
+Szukam palindromu dla liczby 134: 565
+Szukam palindromu dla liczby 135: 666
+Szukam palindromu dla liczby 136: 767
+Szukam palindromu dla liczby 137: 868
+Szukam palindromu dla liczby 138: 969
+Szukam palindromu dla liczby 139: 1771
+Szukam palindromu dla liczby 140: 181
+Szukam palindromu dla liczby 141: 141
+Szukam palindromu dla liczby 142: 383
+Szukam palindromu dla liczby 143: 484
+Szukam palindromu dla liczby 144: 585
+Szukam palindromu dla liczby 145: 686
+Szukam palindromu dla liczby 146: 787
+Szukam palindromu dla liczby 147: 888
+Szukam palindromu dla liczby 148: 989
+Szukam palindromu dla liczby 149: 1991
+Szukam palindromu dla liczby 150: 303
+Szukam palindromu dla liczby 151: 151
+Szukam palindromu dla liczby 152: 707
+Szukam palindromu dla liczby 153: 909
+Szukam palindromu dla liczby 154: 1111
+Szukam palindromu dla liczby 155: 4444
+Szukam palindromu dla liczby 156: 6666
+Szukam palindromu dla liczby 157: 8888
+Szukam palindromu dla liczby 158: 11011
+Szukam palindromu dla liczby 159: 1221
+Szukam palindromu dla liczby 160: 343
+Szukam palindromu dla liczby 161: 161
+Szukam palindromu dla liczby 162: 747
+Szukam palindromu dla liczby 163: 949
+Szukam palindromu dla liczby 164: 2662
+Szukam palindromu dla liczby 165: 4884
+Szukam palindromu dla liczby 166: 45254
+Szukam palindromu dla liczby 167: 88555588
+Szukam palindromu dla liczby 168: 13431
+Szukam palindromu dla liczby 169: 1441
+Szukam palindromu dla liczby 170: 383
+Szukam palindromu dla liczby 171: 171
+Szukam palindromu dla liczby 172: 787
+Szukam palindromu dla liczby 173: 989
+Szukam palindromu dla liczby 174: 5115
+Szukam palindromu dla liczby 175: 9559
+Szukam palindromu dla liczby 176: 44044
+Szukam palindromu dla liczby 177: 8836886388
+Szukam palindromu dla liczby 178: 15851
+Szukam palindromu dla liczby 179: 1661
+Szukam palindromu dla liczby 180: 747
+Szukam palindromu dla liczby 181: 181
+Szukam palindromu dla liczby 182: 45254
+Szukam palindromu dla liczby 183: 13431
+Szukam palindromu dla liczby 184: 2552
+Szukam palindromu dla liczby 185: 4774
+Szukam palindromu dla liczby 186: 6996
+Szukam palindromu dla liczby 187: 8813200023188
+Szukam palindromu dla liczby 188: 233332
+Szukam palindromu dla liczby 189: 1881
+Szukam palindromu dla liczby 190: 45254
+Szukam palindromu dla liczby 191: 191
+Szukam palindromu dla liczby 192: 6996
+Szukam palindromu dla liczby 193: 233332
+Szukam palindromu dla liczby 194: 2992
+Szukam palindromu dla liczby 195: 9339
+Nie istnieje palindrom dla liczby 196
+Szukam palindromu dla liczby 197: 881188
+Szukam palindromu dla liczby 198: 79497
+Szukam palindromu dla liczby 199: 3113
+Szukam palindromu dla liczby 200: 202
+"""
 
-#Wynik działania programu:
