@@ -15,9 +15,9 @@ def sieve(n, registery):
     return registery
 
 
-n = int(input("Wpisz liczbę naturalną domykającą przedział: "))
+n = int(input("Enter the natural number closing the interval: "))
 
-if n <= 2: print("Liczba musi być większa niż 2")
+if n <= 2: print("The number must be greater than 2")
 
 else:
     sieve_list = list(range(2, n + 1))
@@ -27,19 +27,19 @@ else:
     start = time.time()
     sieve(n, sieve_list)
     end = time.time()
-    print("Czas wykonania przy użyciu listy wyniósł %d s" % (end - start))
+    print("The execution time using the list was %d s" % (end - start))
 
     start = time.time()
     sieve(n, sieve_dictionary)
     end = time.time()
-    print("Czas wykonania przy użyciu słownika wyniósł %d s" % (end - start))
+    print("The execution time using the dictionary was %d s" % (end - start))
 
     start = time.time()
     sieve(n, sieve_numpy_array)
     end = time.time()
-    print("Czas wykonania przy użyciu tablicy ze słownika wyniósł %d s\n" % (end - start))
+    print("The execution time using the table from the dictionary was %d s\n" % (end - start))
 
-    print("Liczby pierwsze w zadanym przedziale:")
+    print("Prime numbers in a given range:")
     print(sieve_list)
 
 
@@ -49,12 +49,12 @@ else:
 
     Result:
 
-    Wpisz liczbę naturalną domykającą przedział: 34
-    Czas wykonania przy użyciu listy wyniósł 0 s
-    Czas wykonania przy użyciu słownika wyniósł 0 s
-    Czas wykonania przy użyciu tablicy ze słownika wyniósł 0 s
+    Enter the natural number closing the interval: 34
+    The execution time using the list was 0 s
+    The execution time using the dictionary was 0 s
+    The execution time using the table from the dictionary was 0 s
 
-    Liczby pierwsze w zadanym przedziale:
+    Prime numbers in a given range:
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31]
     """
 
