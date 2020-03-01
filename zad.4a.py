@@ -9,22 +9,8 @@ def sieve(n, registery):
                 elif isinstance(registery, dict): del registery[j]
                 elif isinstance(registery, np.ndarray):
                     registery = np.delete(registery, np.where(registery == j))
-    """Function generates frequenc dictionary.
-
-    For each word in input_text is lowecased, then checked if already existing
-    in dictionary. If yes, increment counter. If not, insert word and set counter
-    for this word to 1.
-
-    Args:
-        n (int): e.g ("39", "5367")
-        registery (int): e.g ("39", "5367")
-
-
-    Returns:
-        dict: With unsorted dictonary with word and counter pairs
-      
-
-    """            
+            
+        
     
             
     return registery
